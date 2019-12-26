@@ -2,14 +2,9 @@
 
 function val = read_Intan_RHD2000_type(type_str, header, t_range)
 
-if ~exist('t_range', 'var')
-  t_range = [0, Inf];
-  is_full_range = true;
-else
-  is_full_range = false;
-end
+is_full_range = ~exist('t_range', 'var');  % default to full range
 
-[~, type_str, ext] = fileparts(type_str);  % allow like amplifier.raw
+[~, type_str, ext] = fileparts(type_str);  % allow adding suffix like amplifier.raw
 
 switch type_str
   case 'time'
@@ -58,13 +53,10 @@ if ~is_full_range
   dsize(2) = diff(i_range) + 1;
 end
 
-dsize
-dtype
-
 % read in binary data
 fid = fopen(fpath, 'r');
 if ~is_full_range
-  fseek(fid, byte_begin);
+  fseek(fid, byte_begin, 'bof');
 end
 val = fread(fid, dsize, dtype);
 fclose(fid);
@@ -77,8 +69,10 @@ end
 
 % get time range in unit of sample.
 % the range is inclusive.
+% idx=1 <=> t = 0
+% idx=2 <=> t = 1 / sr
 function i_rg = convert_clamp_range(t_range, sr, i_max)
-  i_rg = floor(t_range(1:2) * sr);
+  i_rg = floor(t_range(1:2) * sr) + 1;
   if i_rg(1) < 1
     i_rg(1) = 1;
   end
