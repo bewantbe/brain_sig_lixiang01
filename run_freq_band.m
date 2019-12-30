@@ -45,6 +45,9 @@ switch bw_method
     plot_stft(st_alpha, sz_wnd, sz_hop, sz_wnd, 'hanning', sampling_rate);
     caxis([-70 30]);
   case 2
+    % ref:
+    % 脑电信号滤波方式汇总 - 公众号：脑机接口社区(微信号：Brain_Computer)
+    % https://cloud.tencent.com/developer/article/1532651
     sr_local = 100;
     st100 = resample(st, sr_local, sampling_rate);  % down-sampling to 100 Hz
     st_alpha = sosfiltx(st100, 10, [8 13] / (sr_local/2), 'bandpass');
