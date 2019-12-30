@@ -36,10 +36,10 @@ for nn = 1:size(sos,1);
 end
 x1 = Z;
 
-ar_od = 6;
-b = ARregressionpd(getcovzpd(x, ar_od), size(x,1));
-x2 = filter([1 b], 1, x);
-x1 = x2;
+%ar_od = 6;
+%b = ARregressionpd(getcovzpd(x, ar_od), size(x,1));
+%x2 = filter([1 b], 1, x);
+%x1 = x2;
 
 figure(211);
 rms_thres = 4*std(x1, 1);

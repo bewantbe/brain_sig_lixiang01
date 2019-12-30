@@ -1,12 +1,16 @@
 %
 include_header
 
-hdpath = '/media/xyy/sam2t/home_extra/pmq/20191217_13_R_1991um_hip_191217_164233/info.rhd';
+%hdpath = '/media/xyy/sam2t/home_extra/pmq/20191217_13_R_1991um_hip_191217_164233/info.rhd';
+
+%hdpath = '/media/xyy/sam2t/home_extra/pmq/20191217_13_R_1841um_hip_shijue_191217_152712/info.rhd';
+
+hdpath = '/media/xyy/sam2t/home_extra/pmq/20191217_135_R_1650um_pfc_191217_184123/info.rhd';
 
 few1 = 1-eps;
 t_range = 10+[0, 500*few1];
 
-header = read_Intan_RHD2000_loader(hdpath);
+header = read_Intan_RHD2000_header(hdpath);
 tic
 t_s = read_Intan_RHD2000_type('time', header, t_range);
 amp_s = read_Intan_RHD2000_type('amplifier', header, t_range);
