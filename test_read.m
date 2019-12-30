@@ -1,4 +1,5 @@
 %
+include_header
 
 hdpath = '/media/xyy/sam2t/home_extra/pmq/20191217_13_R_1991um_hip_191217_164233/info.rhd';
 
@@ -11,15 +12,15 @@ t_s = read_Intan_RHD2000_type('time', header, t_range);
 amp_s = read_Intan_RHD2000_type('amplifier', header, t_range);
 ana_s = read_Intan_RHD2000_type('analogin',  header, t_range);
 dig_s = read_Intan_RHD2000_type('digitalin', header, t_range);
-fprintf('t = %.3f (load data)\n', toc);
+tocs('(load data)');
 
-amp_cov = amp_s * amp_s' / size(amp_s,2);
+%amp_cov = amp_s * amp_s' / size(amp_s,2);
 
-figure(10);
-imagesc(amp_cov);
-colorbar
-title('cov matrix');
+%figure(10);
+%imagesc(amp_cov);
+%colorbar
+%title('cov matrix');
 
-figure(9);
-plot(t_s, ana_s);
-title('analogin');
+%figure(9);
+%plot(t_s, ana_s);
+%title('analogin');

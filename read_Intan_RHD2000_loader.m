@@ -44,6 +44,10 @@ tic;
 filename = [path,filesep,file];
 fid = fopen(filename, 'r');
 
+if fid == -1
+  error(['File not found:', ' ', filename]);
+end
+
 s = dir(filename);
 filesize = s.bytes;
 
