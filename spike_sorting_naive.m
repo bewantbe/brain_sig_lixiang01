@@ -13,7 +13,7 @@ for nn = 1:size(sos,1);
 end
 x1 = Z;
 
-rms_thres = rms_thres_std_factor * std(x1, 1);
+rms_thres = rms_thres_std_factor * std(x1(2000:end-2000), 1);
 
 st1 = x1 > rms_thres;    % positive "spike"
 st2 = x1 < -rms_thres;   % negative "spike"

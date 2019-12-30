@@ -14,7 +14,7 @@ rms_x = std(x, 1);
 
 rg_show = 1*sampling_rate + (1:floor(0.5*sampling_rate));
 
-% show curve comparison
+% show curve - spike train comparison
 figure(100);
 t_demo = (rg_show - rg_show(1))/sampling_rate;
 plot(t_demo, 2*rms_x * st1(rg_show), ...\
