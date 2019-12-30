@@ -6,11 +6,8 @@ included_header = true;
 
 pkg load signal
 
-% for ARregression
-addpath('~/matcode/GC_clean/GCcal');
-
 % for plot_stft
-addpath('~/matcode/stft_mrfft/');
+addpath('./external_code/stft_mrfft/');
 
 global pic_output
 global pic_output_eps

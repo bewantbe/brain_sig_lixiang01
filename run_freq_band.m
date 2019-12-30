@@ -17,7 +17,7 @@ header = read_Intan_RHD2000_header(hdpath);
 % load data
 few1 = 1-eps;
 t_range = 10+[0, 500*few1];
-%amp_s = read_Intan_RHD2000_type('amplifier', header, t_range);
+amp_s = read_Intan_RHD2000_type('amplifier', header, t_range);
 
 sampling_rate = header.frequency_parameters.amplifier_sample_rate;
 

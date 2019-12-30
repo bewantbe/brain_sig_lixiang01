@@ -36,6 +36,10 @@ for nn = 1:size(sos,1);
 end
 x1 = Z;
 
+
+% for ARregression
+%addpath('./external_code/GC_clean/GCcal');
+
 %ar_od = 6;
 %b = ARregressionpd(getcovzpd(x, ar_od), size(x,1));
 %x2 = filter([1 b], 1, x);
